@@ -1,5 +1,5 @@
-module.exports = { consultar_pn }
-module.exports = { consultar_sn }
+module.exports = { consultar_pn, consultar_sn }
+
 
 var axios = require("axios")
 
@@ -48,7 +48,7 @@ async function consultar_sn(sn_recebido){
                 json: true
         }   
 )
-    console.log(response.data.EOXRecord[0])    
+     
     return response.data.EOXRecord[0]
 
 

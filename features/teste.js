@@ -54,9 +54,9 @@ module.exports = function (controller) {
     
     
     
-    convo.addQuestion( 'Por favor informe o **serial number** do equipamento, para pesquisar vários seriais de uma vez, separe-os por vírgulas sem deixar espaços. Ex. FCH2226VA2J,FXS1643Q25Q', async function(sn) {
+    convo.addQuestion( 'Por favor informe o serial number do equipamento, para pesquisar vários seriais de uma vez, separe-os por vírgulas sem deixar espaços. Ex. FCH2226VA2J,FXS1643Q25Q', async function(sn) {
         let response = await f.consultar_sn(sn)
-        convo.addMessage(`Produto: ${response.EOLProductID}`)
+        convo.addMessage(`Produto: ${response.EOLProductID}`, 'ask_end_of_support')
         console.log(`Produto: ${response.EOLProductID}`)
 
     }, 'stated_end_of_support', 'ask_end_of_support' );
