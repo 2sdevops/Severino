@@ -1,4 +1,4 @@
-# Botkit template
+# Webex BOT Severino 2s template
 
 This project implements a Botkit + Webex Teams adapter bot, based on the [generator-botkit](https://www.npmjs.com/package/generator-botkit) Yoeman template, providing a few extra good-practice features, plus several interesting samples:
 
