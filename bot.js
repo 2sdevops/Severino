@@ -21,6 +21,7 @@
 // This is the main file for the template bot.
 
 // Load process.env values from .env file
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
 require('dotenv').config();
 
 if (!process.env.WEBEX_ACCESS_TOKEN) {
