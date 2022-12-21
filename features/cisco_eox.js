@@ -46,7 +46,9 @@ module.exports = function (controller) {
         let response = await f.consultar_pn(pn)
         let data_end_of_sale = await f.ajuste_data(response.EndOfSaleDate.value)
         let data_end_of_support = await f.ajuste_data(response.LastDateOfSupport.value)
-        convo.addMessage(`Modelo: ${response.EOLProductID} \n\nEnd of sale: ${data_end_of_sale} \n\nEnd of support: ${data_end_of_support} \n\nLink: ${response.LinkToProductBulletinURL}`,'ask_end_of_sale' )
+        let data_end_of_eox = await f.ajuste_data(response.EOXExternalAnnouncementDate.value)
+        console.log(response)
+        convo.addMessage(`Modelo: ${response.EOLProductID} \n\nEnd of sale: ${data_end_of_sale} \n\nEnd of support: ${data_end_of_support} \n\nEnd of EOX: ${data_end_of_eox} \n\nLink: ${response.LinkToProductBulletinURL}`,'ask_end_of_sale' )
     } , 'stated_end_of_sale', 'ask_end_of_sale' );
     
     

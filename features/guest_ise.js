@@ -14,7 +14,7 @@ module.exports = function (controller) {
     
     convo.ask('Por favor informe o email do novo usuario da rede guest', async(response) => {
         let resposta = await f.guest_main(response);
-        await convo.say(`Segue as credenciais de acesso a rede guest da 2S \n\nUsuario: ${response} \n\nSenha: ${resposta}`);
+        await convo.say(`Segue as credenciais de acesso a rede guest da 2S \n\nUsuario: ${response} \n\nSenha: ${resposta} \n\nAcesso valido por 1 dia!`);
         
     })
 
