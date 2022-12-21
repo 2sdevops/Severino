@@ -15,8 +15,8 @@ module.exports = function (controller) {
     
 
     controller.hears( ['3', 'dolar'], 'message,direct_message', async ( bot, message ) => {
-        let resultado = await f.dolar();
-        await bot.say(`O valor atual do dólar é: ${resultado}`);
+        let dolar = await f.dolar();
+        await bot.say(`O valor atual do dólar hoje:\n\n R$ ${dolar}`);
       });
       
 

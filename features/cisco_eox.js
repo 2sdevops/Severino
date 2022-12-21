@@ -44,7 +44,9 @@ module.exports = function (controller) {
 
     convo.addQuestion( "Por favor informe o part number completo do equipamento, para pesquisar vários pns de uma vez, separe-os por vírgulas sem deixar espaços. Ex. ATA190,WS-C2960-24PC-L", async function(pn){  
         let response = await f.consultar_pn(pn)
-        convo.addMessage(`Modelo: ${response.EOLProductID} \n\nLink: ${response.LinkToProductBulletinURL} \n\nData Final: ${response.EndOfSaleDate.value}`,'ask_end_of_sale' )
+        let data_end_of_sale = await f.ajuste_data(response.EndOfSaleDate.value)
+        let data_end_of_support = await f.ajuste_data(response.LastDateOfSupport.value)
+        convo.addMessage(`Modelo: ${response.EOLProductID} \n\nEnd of sale: ${data_end_of_sale} \n\nEnd of support: ${data_end_of_support} \n\nLink: ${response.LinkToProductBulletinURL}`,'ask_end_of_sale' )
     } , 'stated_end_of_sale', 'ask_end_of_sale' );
     
     
@@ -52,8 +54,9 @@ module.exports = function (controller) {
     
     convo.addQuestion( 'Por favor informe o serial number do equipamento, para pesquisar vários seriais de uma vez, separe-os por vírgulas sem deixar espaços. Ex. FCH2226VA2J,FXS1643Q25Q', async function(sn) {
         let response = await f.consultar_sn(sn)
-        convo.addMessage(`Produto: ${response.EOLProductID} \n\nLink: ${response.LinkToProductBulletinURL} \n\nEnd of sale: ${response.EndOfSaleDate.value} `, 'ask_end_of_support')
-        console.log(`Produto: ${response}`)
+        
+        convo.addMessage(`Produto: ${response.EOLProductID} \n\nLink: ${response.LinkToProductBulletinURL} \n\nEnd of sale: ${f.ajuste_data(response.EndOfSaleDate.value)} `, 'ask_end_of_support')
+        
 
     }, 'stated_end_of_support', 'ask_end_of_support' );
 

@@ -1,5 +1,5 @@
 
-module.exports = { consultar_pn, consultar_sn }
+module.exports = { consultar_pn, consultar_sn, ajuste_data }
 
 
 var axios = require("axios")
@@ -33,7 +33,7 @@ async function consultar_pn(pn_recebido){
                 json: true
         }   
 )
-    console.log(response.data.EOXRecord[0])
+    
     return response.data.EOXRecord[0]
         
 }
@@ -55,6 +55,12 @@ async function consultar_sn(sn_recebido){
     
 }
 
+async function ajuste_data(data){
+    const dateArray = data.split('-');
+    const reversedArray = dateArray.reverse();
+    const reversedDate = reversedArray.join('/');
+    return reversedDate
+}
 
 
 
