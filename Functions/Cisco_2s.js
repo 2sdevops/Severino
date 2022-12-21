@@ -1,3 +1,4 @@
+
 module.exports = { consultar_pn, consultar_sn }
 
 
@@ -32,6 +33,7 @@ async function consultar_pn(pn_recebido){
                 json: true
         }   
 )
+    console.log(response.data.EOXRecord[0])
     return response.data.EOXRecord[0]
         
 }
@@ -47,13 +49,11 @@ async function consultar_sn(sn_recebido){
                 },
                 json: true
         }   
-)
-     
+) 
+
     return response.data.EOXRecord[0]
-
-
+    
 }
-
 
 
 

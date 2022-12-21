@@ -6,10 +6,6 @@ var axios = require("axios")
 
 async function dolar(){
     var response = await axios.get('https://economia.awesomeapi.com.br/last/USD-BRL')
-    console.log(response)
-    return response
+    return response.data['USDBRL']['ask']
         
 }
-
-dolar()
-
