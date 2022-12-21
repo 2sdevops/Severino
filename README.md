@@ -30,7 +30,7 @@ Assuming you plan to us [ngrok](https://ngrok.com) to give your bot a publically
 1. Clone this repo:
 
     ```sh
-    git clone https://github.com/CiscoDevNet/botkit-template.git
+    git clone https://github.com/2sdevops/Severino.git
 
     cd botkit-template
     ```
