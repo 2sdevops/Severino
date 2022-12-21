@@ -32,7 +32,7 @@ Assuming you plan to us [ngrok](https://ngrok.com) to give your bot a publically
     ```sh
     git clone https://github.com/2sdevops/Severino.git
 
-    cd botkit-template
+    cd Severino
     ```
 
 1. Install the Node.js dependencies:
